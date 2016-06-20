@@ -1,0 +1,85 @@
+
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+
+@import 'base/breakpoints';
+@import 'base/variables';
+@import 'base/base';
+
+body {
+  @include outer-container();
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.title {
+  text-align: center;
+  color: white;
+  margin-bottom: 10rem;
+  h1 {
+    text-transform: uppercase;
+  }
+  label {
+    font-size: 1.25rem;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+}
+.audio-controls {
+  .audio-control {
+    padding: 1rem;
+    @include span-columns(2);
+    @include omega(6n);
+    @include media($mobile) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+  }
+}
+.audio-control {
+  text-align: center;
+  color: white;
+  img {
+    width: 100px;
+    height: 100px;
+    filter: invert(0.90);
+    -webkit-filter: invert(0.90);
+    cursor: pointer;
+    transition: 0.25s all;
+
+    &.muted {
+      filter: invert(0.4);
+      -webkit-filter: invert(0.4);
+    }
+    &:hover {
+      filter: invert(1);
+      -webkit-filter: invert(1);
+    }
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  input {
+    display: inline-block;
+  }
+}
+
+.attributions {
+  @include span-columns(12);
+  margin-top: 10rem;
+  font-size: 0.5rem;
+  color: white;
+  bottom: 0;
+  position: relative;
+  padding: 1rem;
+  div {
+
+  }
+}
