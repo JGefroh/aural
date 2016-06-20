@@ -48,8 +48,10 @@
             audioElement.volume = volumeToSet;
           });
           audioElement.addEventListener('timeupdate', function(event) {
-            if (event.srcElement.duration - event.srcElement.currentTime  <= 1) {
-              event.srcElement.currentTime = 0;
+            if (event.srcElement) {
+              if (event.srcElement.duration - event.srcElement.currentTime  <= 1) {
+                event.srcElement.currentTime = 0;
+              }
             }
           });
         }

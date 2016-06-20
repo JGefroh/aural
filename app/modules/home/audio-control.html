@@ -2,7 +2,7 @@
   <img data-ng-class="{'muted': vm.volume == 0}" data-ng-click="vm.toggleMute();" data-ng-src="{{vm.icon}}"/>
   <label data-ng-bind="::vm.name"></label>
   <input type="range" step="0.01" min="0" max="1" data-ng-model="vm.volume"/>
-  <audio autoplay="true">
+  <audio autoplay="true" loop="true">
     <source data-ng-src="{{::vm.path}}" style="audio/mpeg"></source>
   </audio>
 </div>
