@@ -46,6 +46,7 @@
               volumeToSet = 1;
             }
             audioElement.volume = volumeToSet;
+            audioElement.play();
           });
           audioElement.addEventListener('timeupdate', function(event) {
             if (event.srcElement) {
@@ -54,6 +55,7 @@
               }
             }
           });
+          audioElement.play();
         }
       };
     }

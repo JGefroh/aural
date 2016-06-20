@@ -60,6 +60,14 @@
         {
           name: 'Radio',
           volume: 0
+        },
+        {
+          name: 'Helicopter',
+          volume: 0
+        },
+        {
+          name: 'Wind',
+          volume: 0
         }
       ];
     }
