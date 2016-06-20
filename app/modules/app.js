@@ -48,6 +48,18 @@
         {
           name: 'People',
           volume: 0
+        },
+        {
+          name: 'Generator',
+          volume: 0
+        },
+        {
+          name: 'Gun',
+          volume: 0
+        },
+        {
+          name: 'Radio',
+          volume: 0
         }
       ];
     }

@@ -14,24 +14,44 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>  </head>
   <body>
     <div class="title">
-      <h1>Aural</h1>
-      <label>Go somewhere else without leaving your chair.</label>
+      <h1>Aural
+        <p>v0.0.1</p>
+      </h1>
+      <label>Customize your environment.</label>
       <p>Created by <a href="http://www.jgefroh.com">Joseph Gefroh</a></p>
     </div>
     <div class="audio-controls">
-      <audio-control data-ng-repeat="control in vm.audio" data-name="control.name" data-icon="control.icon" data-path="control.path" data-volume="control.volume"></audio-control>
+      <audio-control data-ng-repeat="control in vm.audio | orderBy: 'name' track by $index" data-name="control.name" data-icon="control.icon" data-path="control.path" data-volume="control.volume"></audio-control>
+      <div class="audio-control">
+        <img class="muted" src="images/add.svg"/>
+        <label>Coming soon...</label>
+      </div>
     </div>
-
     <div class="attributions">
-      <label>Attributions</label>
-      <div>Birds, Crickets, Rain, Thunder, River, Waves sounds by <a href="http://www.orangefreesounds.com/author/alexander/" title="Alexander">Alexander</a> from <a href="http://www.orangefreesounds.com/" title="Orange Free Sounds">www.orangefreesounds.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons BY 4.0" target="_blank">CC 4.0 BY</a></div>
-      <div>Fire sound by <a href="https://www.freesound.org/people/Spandau/" title="Spandau">Spandau</a> from <a href="https://www.freesound.org/" title="Freesound">Freesound</a> is licensed by <a href="http://creativecommons.org/publicdomain/zero/1.0/" title="Creatice Commons CC0 1.0">CC0 1.0 (Public Domain)</a></div>
-      <div>Wave icon made by <a href="http://www.flaticon.com/authors/ocha" title="OCHA">OCHA</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-      <div>Cricket icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-      <div>River icon made by <a href="http://www.flaticon.com/authors/becris" title="Becris">Becris</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-      <div>Thunder icon made by <a href="http://www.flaticon.com/authors/dario-ferrando" title="Dario Ferrando">Dario Ferrando</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-      <div>Rain icon made by <a href="http://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-      <div>Birds icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+      <label data-ng-click="vm.isShowingAttributions = !vm.isShowingAttributions" style="cursor: pointer;">Attributions <span class="fa fa-fw" data-ng-class="{'fa-chevron-right' : !vm.isShowingAttributions, 'fa-chevron-down' : vm.isShowingAttributions}"></span></label>
+      <div data-ng-if="vm.isShowingAttributions">
+        <div>Software inspired by <a href="http://asoftmurmur.com/">A Soft Murmur</a> by Gabriel Martin.</div>
+        <hr>
+        <div>Birds, Crickets, Rain, Thunder, River sounds by <a href="http://www.orangefreesounds.com/author/alexander/" title="Alexander">Alexander</a> from <a href="http://www.orangefreesounds.com/" title="Orange Free Sounds">www.orangefreesounds.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons BY 4.0" target="_blank">CC 4.0 BY</a></div>
+        <div>Wave sound by <a href="https://www.freesound.org/people/tsitsa/sounds/325544/" title="tsitsa">tsitsa</a> from <a href="https://www.freesound.org" title="Freesound">Freesound</a> is licensed by <a href="http://creativecommons.org/publicdomain/zero/1.0/" title="Creatice Commons CC0 1.0">CC0 1.0 (Public Domain)</a></div>
+        <div>Fire sound by <a href="https://www.freesound.org/people/Spandau/" title="Spandau">Spandau</a> from <a href="https://www.freesound.org/" title="Freesound">Freesound</a> is licensed by <a href="http://creativecommons.org/publicdomain/zero/1.0/" title="Creatice Commons CC0 1.0">CC0 1.0 (Public Domain)</a></div>
+        <div><a href="http://www.freesound.org/people/Audionautics/sounds/136977/">People</a> sound by <a href="http://freesound.org/people/Audionautics">Audionautics</a> from <a href="https://www.freesound.org/" title="Freesound">Freesound</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/legalcode">CC 3.0 BY</a>
+        <div>Generator sound by <a href="https://www.freesound.org/people/qubodup/" title="Iwan Gabovitch">Iwan Gabovitch</a> from <a href="https://www.freesound.org/" title="Freesound">Freesound</a> is licensed by <a href="http://creativecommons.org/publicdomain/zero/1.0/" title="Creatice Commons CC0 1.0">CC0 1.0 (Public Domain)</a></div>
+        <div>Gunshot sound by <a href="https://www.freesound.org/people/LG/" title="qubodup">LG</a> from <a href="https://www.freesound.org/" title="Freesound">Freesound</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <hr>
+        <div>Wave icon made by <a href="http://www.flaticon.com/authors/ocha" title="OCHA">OCHA</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Cricket icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>River icon made by <a href="http://www.flaticon.com/authors/becris" title="Becris">Becris</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Thunder icon made by <a href="http://www.flaticon.com/authors/dario-ferrando" title="Dario Ferrando">Dario Ferrando</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Rain icon made by <a href="http://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Birds icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Fire icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>People icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Generator icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Gun icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Radio icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Plus icon made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+      </div>
     </div>
   </body>
 </html>
