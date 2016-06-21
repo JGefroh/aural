@@ -53,8 +53,14 @@
                 sound = new Howl({
                   urls: [scope.vm.pathOgg],
                   loop: true,
-                  autoplay: true
+                  autoplay: true,
+                  onload: function() {
+                    scope.$apply(function() {
+                      scope.vm.loading = false;
+                    });
+                  }
                 });
+                scope.vm.loading = true;
               }
             }
             sound.volume(volumeToSet);
