@@ -6,8 +6,6 @@
     function Directive() {
       function Controller() {
         var vm = this;
-        vm.icon = vm.icon || ('images/' + vm.name.toLowerCase() + '.svg');
-        vm.path = vm.path || ('audio/' + vm.name.toLowerCase() + '.mp3');
         vm.savedVolume = 0;
 
         vm.toggleMute = function() {
@@ -35,27 +33,32 @@
           volume: '=?'
         },
         link: function(scope, element, attributes) {
-          var audioElement = element[0].children[3];
+          scope.vm.icon = scope.vm.icon || ('images/' + scope.vm.name.toLowerCase() + '.svg');
+          scope.vm.pathOgg = scope.vm.path || ('audio/' + scope.vm.name.toLowerCase() + '.ogg');
+          scope.vm.pathMp3 = scope.vm.path || ('audio/' + scope.vm.name.toLowerCase() + '.mp3');
+
+          var sound = null;
           scope.vm.volume = scope.vm.volume || 0;
           scope.$watch('vm.volume', function(newVolume, oldVolume) {
-            var volumeToSet = newVolume;
+            var volumeToSet;
             if (!newVolume || newVolume < 0) {
               volumeToSet = 0;
             }
             else if (volumeToSet > 1) {
               volumeToSet = 1;
             }
-            audioElement.volume = volumeToSet;
-            audioElement.play();
-          });
-          audioElement.addEventListener('timeupdate', function(event) {
-            if (event.srcElement) {
-              if (event.srcElement.duration - event.srcElement.currentTime  <= 1) {
-                event.srcElement.currentTime = 0;
+            else {
+              volumeToSet = newVolume;
+              if (!sound) {
+                sound = new Howl({
+                  urls: [scope.vm.pathOgg],
+                  loop: true,
+                  autoplay: true
+                });
               }
             }
+            sound.volume(volumeToSet);
           });
-          audioElement.play();
         }
       };
     }
