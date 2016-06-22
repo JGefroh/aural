@@ -40,6 +40,25 @@ body {
     }
   }
 }
+
+.header {
+  margin-top: 3rem;
+  color: white;
+  @include span-columns(12);
+}
+.audio-presets {
+  @include span-columns(12);
+  .audio-preset {
+    padding: 1rem;
+    @include span-columns(2);
+    @include omega(6n);
+    @include media($mobile) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+  }
+}
+
 .audio-control {
   text-align: center;
   color: white;
@@ -68,6 +87,33 @@ body {
 
   input {
     display: inline-block;
+  }
+}
+
+.audio-preset {
+  text-align: center;
+  color: white;
+  img {
+    width: 100px;
+    height: 100px;
+    filter: invert(0.90);
+    -webkit-filter: invert(0.90);
+    cursor: pointer;
+    transition: 0.25s all;
+
+    &.muted {
+      filter: invert(0.4);
+      -webkit-filter: invert(0.4);
+    }
+    &:hover {
+      filter: invert(1);
+      -webkit-filter: invert(1);
+    }
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.25rem;
   }
 }
 

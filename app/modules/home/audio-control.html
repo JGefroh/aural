@@ -1,6 +1,6 @@
 <div class="audio-control">
-  <img data-ng-if="!vm.loading" data-ng-class="{'muted': vm.volume == 0}" data-ng-click="vm.toggleMute();" data-ng-src="{{vm.icon}}"/>
-  <img data-ng-if="vm.loading" data-ng-class="{'muted': vm.volume == 0}" src="images/loading.svg" class="fa-spin"/>
-  <label data-ng-bind="::vm.name"></label>
-  <input type="range" step="0.01" min="0" max="1" data-ng-model="vm.volume"/>
+  <img data-ng-if="!vm.loading" data-ng-class="{'muted': vm.control.volume == 0}" data-ng-click="vm.toggleMute();" data-ng-src="{{vm.control.icon}}"/>
+  <img data-ng-if="vm.loading" data-ng-class="{'muted': vm.control.volume == 0}" src="images/loading.svg" class="fa-spin"/>
+  <label data-ng-bind="::vm.control.name"></label>
+  <input type="range" step="0.01" min="0" max="1" data-ng-model="vm.control.volume"/>
 </div>

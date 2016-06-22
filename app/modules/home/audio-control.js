@@ -9,12 +9,12 @@
         vm.savedVolume = 0;
 
         vm.toggleMute = function() {
-          if (vm.volume > 0) {
-            vm.savedVolume = vm.volume;
-            vm.volume = 0;
+          if (vm.control.volume > 0) {
+            vm.savedVolume = vm.control.volume;
+            vm.control.volume = 0;
           }
           else {
-            vm.volume = vm.savedVolume > 0 ? vm.savedVolume : 1;
+            vm.control.volume = vm.savedVolume > 0 ? vm.savedVolume : 1;
           }
         };
       }
@@ -27,19 +27,16 @@
         controllerAs: 'vm',
         bindToController: true,
         scope: {
-          icon: '=?',
-          name: '=',
-          path: '=?',
-          volume: '=?'
+          control: '='
         },
         link: function(scope, element, attributes) {
-          scope.vm.icon = scope.vm.icon || ('images/' + scope.vm.name.toLowerCase() + '.svg');
-          scope.vm.pathOgg = scope.vm.path || ('audio/' + scope.vm.name.toLowerCase() + '.ogg');
-          scope.vm.pathMp3 = scope.vm.path || ('audio/' + scope.vm.name.toLowerCase() + '.mp3');
+          scope.vm.control.icon = scope.vm.control.icon || ('images/' + scope.vm.control.name.toLowerCase() + '.svg');
+          scope.vm.pathOgg = scope.vm.control.path || ('audio/' + scope.vm.control.name.toLowerCase() + '.ogg');
+          scope.vm.pathMp3 = scope.vm.control.path || ('audio/' + scope.vm.control.name.toLowerCase() + '.mp3');
 
           var sound = null;
-          scope.vm.volume = scope.vm.volume || 0;
-          scope.$watch('vm.volume', function(newVolume, oldVolume) {
+          scope.vm.control.volume = scope.vm.control.volume || 0;
+          scope.$watch('vm.control.volume', function(newVolume, oldVolume) {
             var volumeToSet;
             if (!newVolume || newVolume < 0) {
               volumeToSet = 0;
@@ -63,7 +60,9 @@
                 scope.vm.loading = true;
               }
             }
-            sound.volume(volumeToSet);
+            if (sound) {
+              sound.volume(volumeToSet);
+            }
           });
         }
       };

@@ -21,12 +21,18 @@
       <p>Created by <a href="http://www.jgefroh.com">Joseph Gefroh</a></p>
     </div>
     <div class="audio-controls">
-      <audio-control data-ng-repeat="control in vm.audio | orderBy: 'name' track by $index" data-name="control.name" data-icon="control.icon" data-path="control.path" data-volume="control.volume"></audio-control>
+      <audio-control data-ng-repeat="control in vm.audio | orderBy: 'name' track by $index" data-control="control"></audio-control>
       <div class="audio-control">
         <img class="muted" src="images/add.svg"/>
         <label>Coming soon...</label>
       </div>
     </div>
+
+    <h3 class="header">Experiences</h3>
+    <div class="audio-presets">
+      <audio-preset data-ng-repeat="preset in vm.presets | orderBy: 'name' track by $index" data-preset="preset" data-controls="vm.audio"></audio-preset>
+    </div>
+
     <div class="attributions">
       <label data-ng-click="vm.isShowingAttributions = !vm.isShowingAttributions" style="cursor: pointer;">Attributions <span class="fa fa-fw" data-ng-class="{'fa-chevron-right' : !vm.isShowingAttributions, 'fa-chevron-down' : vm.isShowingAttributions}"></span></label>
       <div data-ng-if="vm.isShowingAttributions">
@@ -57,6 +63,12 @@
         <div>Helicopter icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
         <div>Wind icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
         <div>Loading icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Seattle Coffee Shop icon made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Helicopter Assault icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Lounging at the Beach icon made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Camping by the River icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>Forward Operating Base icon made by <a href="http://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div>A Dreary Day icon made by <a href="http://www.flaticon.com/authors/epiccoders" title="EpicCoders">EpicCoders</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
       </div>
     </div>
   </body>
