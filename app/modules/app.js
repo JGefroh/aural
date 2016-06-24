@@ -27,7 +27,7 @@
         },
         {
           name: 'Rain',
-          volume: 0.5
+          volume: 0
         },
         {
           name: 'River',
@@ -35,7 +35,7 @@
         },
         {
           name: 'Thunder',
-          volume: 0.7
+          volume: 0
         },
         {
           name: 'Waves',
