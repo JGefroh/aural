@@ -68,6 +68,22 @@
         {
           name: 'Wind',
           volume: 0
+        },
+        {
+          name: 'Owl',
+          volume: 0
+        },
+        {
+          name: 'Clock',
+          volume: 0
+        },
+        {
+          name: 'Heart',
+          volume: 0
+        },
+        {
+          name: 'EKG',
+          volume: 0
         }
       ];
 
@@ -154,11 +170,15 @@
           controls: [
             {
               name: 'Crickets',
-              volume: 0.3
+              volume: 0.1
             },
             {
               name: 'River',
-              volume: 0.3
+              volume: 0.4
+            },
+            {
+              name: 'Owl',
+              volume: 1
             },
             {
               name: 'Fire',
