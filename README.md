@@ -10,6 +10,8 @@ have some soothing sounds, but it also has harsher noises, making it more approp
 
 The [live version](http://aural.jgefroh.com) can be found on my website.
 
+![thumb-lg](https://user-images.githubusercontent.com/1077095/30257743-e4cf29ee-964f-11e7-9cc0-560a1e5fe9ea.png)
+
 ### Technologies
 Front-end
 - AngularJS
